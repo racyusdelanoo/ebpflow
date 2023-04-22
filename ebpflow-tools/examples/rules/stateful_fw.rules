@@ -1,0 +1,4 @@
+# Rule format: map-name key sn-mask value
+# 
+
+inports 0x0000000000000001 0x0000000000000000 0x0000000000000000
