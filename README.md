@@ -8,7 +8,7 @@ This repository presents complimentary material to the paper "eBPFlow: a Hardwar
 The contents are divided as as follows:
 - `bitstream/`:  File to load on NetFPGA SUME
 - `ebpflow-tools/`: Tool to load eBPF code into eBPFlow 
-- `usecases/`: eBPF network functions
+- `ebpflow-tools/examples/`: eBPF network functions
 
 ## Quick start guidelines
 1) You should load the bitstream file of the eBPFlow design with the Xilinx Vivado 16.04.
