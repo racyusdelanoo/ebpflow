@@ -6,11 +6,56 @@ eBPFlow is a platform that supports offloading NFs using the standard, general-p
 This repository presents complimentary material to the paper "eBPFlow: a Hardware/Software Platform to Seamlessly Offload Network Functions Levera    ging eBPF" submitted to IEEE/ACM Transactions on Networking (ToN).
 
 The contents are divided as as follows:
-- `bitstream/`:  folder with the file to load on NetFPGA SUME
-- `usecases/`: folder with the eBPF network functions
- 
-## Quick start guidelines
+- `bitstream/`:  File to load on NetFPGA SUME
+- `ebpflow-tools/`: Tool to load eBPF code into eBPFlow 
+- `usecases/`: eBPF network functions
 
+## Quick start guidelines
+1) You should load the bitstream file of the eBPFlow design with the Xilinx Vivado 16.04.
+
+2) Compile ebpflow-tools 
+  cd ebpflow-tools 
+  make 
+  make install
+  
+3) To load the network function on eBPFlow use the ebpflow-tools 
+
+Usage: ebpflow-load [FLAGS] <ebpf-file.o>
+
+Tool to load eBPF code into eBPFlow Switch.
+
+Options: 
+
+   -n                  Dry run without actually loading the code
+   
+   -x                  Show hex instructions after loading
+   
+   -d                  Disassemble instructions after loading
+   
+   -m MODE             Router mode to use (default is 1 [Router])
+   
+   -r RULES-FILE       Rules to be added to maps
+   
+   -s                  Checks and prints registers status
+   
+   -t                  Show table definitions
+   
+   -c MEM              Clean memory. See possible MEM values below
+   
+   -u MEM              Dump memory. See possible MEM values below
+   
+   -g                  Enable debug info (should be used with -s)
+   
+   -f                  Load instructions from raw .txt file
+   
+   -h                  Print this help message
+
+MEM:
+   
+   1 -> TCAM
+   
+   2 -> CAM
+ 
 ## Use cases
 - Wire: acts as a wire connecting adjacent ports in pairs of two. It performs an XOR operation between the input port value and 1, which inverts t    he least significant bit. This value defines the outgoing packet port. It is the most straightforward application and serves as a performance base    line.
   
